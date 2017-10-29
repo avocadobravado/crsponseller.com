@@ -2,3 +2,10 @@
 $primary-font: 'Work Sans', sans-serif;
 $secondary-font: 'BioRhyme', serif;
 $letter-spacing: 0.03em;
+
+
+// Breakpoints
+$xs-bp: "only screen and (max-width: 789px)";
+$small-bp: "only screen and (max-width: 964px)";
+$medium-bp: "only screen and (max-width: 1160px)";
+$large-bp: "only screen and (min-width: 1600px)";

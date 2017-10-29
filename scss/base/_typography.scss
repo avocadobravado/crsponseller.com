@@ -9,10 +9,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 5.5rem;
+  line-height: 6rem;
   font-family: $secondary-font;
   text-transform: uppercase;
   text-shadow: 3px 0 100px darken(navy, 20%);
+  margin-bottom: 10px;
+  @include medium-breakpoint {
+    font-size: 5rem;
+  }
+  @include small-breakpoint {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+
+  @include xs-breakpoint {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
 }
 
 h4 {
