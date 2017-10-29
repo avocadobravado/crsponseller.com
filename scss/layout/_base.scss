@@ -29,7 +29,14 @@ body {
     border-radius: $border-radius;
     height: 96vh;
     width: 97.5vw;
-    background-color: darken(navy, 15%);
+    // background: #1e3c72;  /* fallback for old browsers */
+    // background: -webkit-linear-gradient(45deg, darken(navy, 11%), darken(navy, 20%));  /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(15deg, darken(navy, 11%), darken(navy, 20%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, darken(navy, 15%), darken(navy, 13%), darken(navy, 15%));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, darken(navy, 15%), darken(navy, 13%), darken(navy, 15%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
     .hello {
       @include grid-column(12);
       text-align: center;
@@ -58,7 +65,12 @@ body {
           display: flex;
           justify-content: space-between;
           align-items: flex-end;
-          .fa-twitter {
+          .fa {
+            transition: $transition;
+            &:hover {
+              opacity: .5;
+              animation: spin 500ms 1 forwards ease-in-out;
+            }
           }
         }
         @include xs-breakpoint {
