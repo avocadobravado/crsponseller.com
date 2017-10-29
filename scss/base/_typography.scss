@@ -7,13 +7,16 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
+h1, h2, h4 {
+  margin-bottom: $nudge;
+}
 
 h1 {
   font-size: 5.5rem;
   line-height: 6rem;
   font-family: $secondary-font;
   text-transform: uppercase;
-  text-shadow: 3px 0 100px darken(navy, 20%);
+  text-shadow: 3px 0 50px darken(navy, 20%);
   margin-bottom: 10px;
   @include medium-breakpoint {
     font-size: 5rem;
@@ -29,12 +32,54 @@ h1 {
   }
 }
 
+h2 {
+  color: orange;
+}
+
 h4 {
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-bottom: 10px;
+  font-size: 1.38em;
 }
 
 p {
   font-size: .95em;
+  line-height: 1.85em;
+}
+
+a {
+  color: orange;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  transition: $transition;
+}
+
+.link:hover {
+  color: white;
+}
+
+.link:before, .link:after {
+  content: '';
+  background: orange;
+  position: absolute;
+  width: 0;
+  height: 2px;
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  transition: $transition;
+}
+
+.link:before {
+  top: 0;
+  left: 0;
+}
+
+.link:after {
+  top: 100%;
+  right: 0;
+}
+
+a:hover:before, a:hover:after {
+  width: 100%;
 }

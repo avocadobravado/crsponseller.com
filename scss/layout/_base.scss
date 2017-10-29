@@ -26,27 +26,44 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: 5px;
+    border-radius: $border-radius;
     height: 96vh;
     width: 97.5vw;
     background-color: darken(navy, 15%);
     .hello {
       @include grid-column(12);
       text-align: center;
-      // background-color: orange;
       h1 {
       }
     }
     .text-wrapper {
       @include grid-column(12);
-      text-align: left;
-      // background-color: thistle;
+      max-width: $container;
+      margin: 0 auto;
       .left {
-        @include grid-column(6);
-        // background-color: pink;
+        @include grid-column(10);
+        @include xs-breakpoint {
+          @include grid-column(12);
+          margin-bottom: $nudge;
+        }
       }
       .right {
-        @include grid-column(6);
+        @include grid-column(2);
+        margin-top: $nudge;
+        height: 50px;
+        display: flex;
+        justify-content: flex-end;
+        .icons {
+          width: 100px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          .fa-twitter {
+          }
+        }
+        @include xs-breakpoint {
+          @include grid-column(12);
+        }
       }
     }
   }
