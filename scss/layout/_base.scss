@@ -6,37 +6,48 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: orange;
+    background-color: darken(orange, 10%);
+    font-size: 1.2em;
+}
+
+::selection {
+  background-color: orange;
+  color: white;
+  opacity: .1;
 }
 
 .wrapper {
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // @include grid-column(12);
   .wrapper-container {
     margin-top: 2vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    border-radius: 5px;
     height: 96vh;
     width: 97.5vw;
-    background-color: lighten(navy, 40%);
-    // padding: 18% 1%;
-    // @include grid-column(12);
+    background-color: darken(navy, 15%);
     .hello {
-      // @include grid-column(12);
-      background-color: orange;
+      @include grid-column(12);
+      text-align: center;
+      // background-color: orange;
       h1 {
       }
     }
-    .about {
-      @include grid-column(4);
-      align-self: flex-end;
-      background-color: mistyrose;
+    .text-wrapper {
+      @include grid-column(12);
+      text-align: left;
+      // background-color: thistle;
+      .left {
+        @include grid-column(6);
+        // background-color: pink;
+      }
+      .right {
+        @include grid-column(6);
+      }
     }
   }
 }

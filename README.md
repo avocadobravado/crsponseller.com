@@ -1,1 +1,1 @@
-## Future home of crsponseller.com
+## Splash page, future home of crsponseller.com
