@@ -13,7 +13,6 @@ body {
 ::selection {
   background-color: orange;
   color: white;
-  opacity: .1;
 }
 
 .wrapper {
@@ -29,19 +28,12 @@ body {
     border-radius: $border-radius;
     height: 96vh;
     width: 97.5vw;
-    // background: #1e3c72;  /* fallback for old browsers */
-    // background: -webkit-linear-gradient(45deg, darken(navy, 11%), darken(navy, 20%));  /* Chrome 10-25, Safari 5.1-6 */
-    // background: linear-gradient(15deg, darken(navy, 11%), darken(navy, 20%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: #0f0c29;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, darken(navy, 15%), darken(navy, 13%), darken(navy, 15%));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, darken(navy, 15%), darken(navy, 13%), darken(navy, 15%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+    background: -webkit-linear-gradient(to right, darken(navy, 15%), darken(navy, 12%), darken(navy, 15%));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, darken(navy, 15%), darken(navy, 12%), darken(navy, 15%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     .hello {
       @include grid-column(12);
       text-align: center;
-      h1 {
-      }
     }
     .text-wrapper {
       @include grid-column(12);
@@ -64,12 +56,15 @@ body {
           width: 100px;
           display: flex;
           justify-content: space-between;
-          align-items: flex-end;
+          align-items: center;
+          height: 100px;
           .fa {
             transition: $transition;
+            text-shadow: 0 0 15px black;
             &:hover {
-              opacity: .5;
+              opacity: .3;
               animation: spin 500ms 1 forwards ease-in-out;
+              text-shadow: 10px 0 30px black;
             }
           }
         }
