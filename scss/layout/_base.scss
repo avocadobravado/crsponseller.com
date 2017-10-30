@@ -39,6 +39,9 @@ body {
       @include grid-column(12);
       max-width: $container;
       margin: 0 auto;
+      @include large-breakpoint {
+        max-width: 1200px;
+      }
       .left {
         @include grid-column(10);
         @include xs-breakpoint {

@@ -18,18 +18,6 @@ h1 {
   text-transform: uppercase;
   text-shadow: 3px 0 50px darken(navy, 20%);
   margin-bottom: 10px;
-  @include medium-breakpoint {
-    font-size: 5rem;
-  }
-  @include small-breakpoint {
-    font-size: 4rem;
-    line-height: 4rem;
-  }
-
-  @include xs-breakpoint {
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-  }
 }
 
 h2 {
@@ -82,4 +70,48 @@ a {
 
 a:hover:before, a:hover:after {
   width: 100%;
+}
+
+.wrapper {
+  h1 {
+    @include large-breakpoint {
+      font-size: 6.6rem;
+      line-height: 7rem;
+    }
+    @include medium-breakpoint {
+      font-size: 5rem;
+    }
+    @include small-breakpoint {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+
+    @include xs-breakpoint {
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+    }
+  }
+  h2 {
+    @include xs-breakpoint {
+      font-size: 1rem;
+    }
+  }
+  h4 {
+    @include large-breakpoint {
+      font-size: 2rem;
+    }
+    @include xs-breakpoint {
+      font-size: 1.2rem;
+      line-height: 1.75rem;
+    }
+  }
+  p {
+    @include large-breakpoint {
+      font-size: 1.3rem;
+    }
+    @include xs-breakpoint {
+      font-size: 1.1rem;
+    }
+  }
+
 }
