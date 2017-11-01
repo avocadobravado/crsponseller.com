@@ -48,7 +48,11 @@ var fShader = `
 		// They were added to pixelPosition, within the modulus operations.
 		//float xOffset = mod( u_resolution.x, u_dotSize ) / 2.0;
 		//float yOffset = mod( u_resolution.y, u_dotSize ) / 2.0;
+<<<<<<< HEAD:javascript/shaders-halftone.js
 
+=======
+
+>>>>>>> 0f667b2a883aa3633d34a0a907f6352e07f7190e:js/shaders-halftone.js
 		// Calculate distance on both axes to a range of -1.0 � 1.0.
 		float distanceX = mod(pixelPosition.x, u_dotSize) / u_dotSize * 2.0 - 1.0;
 		float distanceY = mod(pixelPosition.y, u_dotSize) / u_dotSize * 2.0 - 1.0;
@@ -130,14 +134,28 @@ var fShader = `
 
 // The rest of this file is pretty directly
 // taken from the TWGL "tiniest example".
+
 const wgl = document.getElementById( "canvas" ).getContext( "webgl" );
 const programInfo = twgl.createProgramInfo( wgl, [vShader, fShader] );
+var style = window.getComputedStyle( document.getElementById( "canvas" ));
 
 // 3d vectors for six positions (composing a single quad)
 const arrays = {
 	position: [-1, -1, 0, 1, -1, 0, -1, 1, 0, -1, 1, 0, 1, -1, 0, 1, 1, 0],
 };
 const bufferInfo = twgl.createBufferInfoFromArrays(wgl, arrays);
+
+// Convert an RGB(A) value (from CSS) to an array of scalar values.
+function extractColor( cssValue )
+{
+	// Note that no hex conversion is necessary.
+	// CSSStyleDeclaration already provides colors as RGB(A) strings.
+
+	// This line extracts just the number values
+	// via https://stackoverflow.com/a/1183906
+	var array = cssValue.match(/\d+/g);
+	return [array[0]/255, array[1]/255, array[2]/255, 1.0];
+}
 
 function render(time)
 {
@@ -163,8 +181,8 @@ function render(time)
 		u_gradientAngle: 45.0,
 		// Scalar value determine
 		u_gradientWidth: 0.333333,
-		bgColor:     [0.5, 1.0, 0.75, 1.0],
-		dotColor:    [0.5, 0.5, 1.0, 1.0]
+		bgColor: extractColor( style.getPropertyValue('background-color')),
+		dotColor: extractColor( style.getPropertyValue('color')),
 	};
 
 	wgl.useProgram(programInfo.program);
