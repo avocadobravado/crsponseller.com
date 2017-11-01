@@ -1,0 +1,180 @@
+body {
+  font-family: "Work Sans", sans-serif;
+  letter-spacing: 0.03em;
+  color: #cccccc; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; }
+
+h1, h2, h4 {
+  margin-bottom: 15px; }
+
+h1 {
+  font-size: 5.5rem;
+  line-height: 6rem;
+  font-family: "BioRhyme", serif;
+  text-transform: uppercase;
+  text-shadow: 3px 0 50px #00001a;
+  margin-bottom: 10px; }
+
+h2 {
+  color: orange; }
+
+h4 {
+  font-size: 1.38em; }
+
+p {
+  font-size: .95em;
+  line-height: 1.85em; }
+
+a {
+  color: orange;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+
+.link:hover {
+  color: white; }
+
+.link:before, .link:after {
+  content: '';
+  background: orange;
+  position: absolute;
+  width: 0;
+  height: 2px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+
+.link:before {
+  top: 0;
+  left: 0; }
+
+.link:after {
+  top: 100%;
+  right: 0; }
+
+a:hover:before, a:hover:after {
+  width: 100%; }
+
+@media only screen and (min-width: 1500px) {
+  .wrapper h1 {
+    font-size: 6.6rem;
+    line-height: 7rem; } }
+@media only screen and (max-width: 1160px) {
+  .wrapper h1 {
+    font-size: 5rem; } }
+@media only screen and (max-width: 964px) {
+  .wrapper h1 {
+    font-size: 4rem;
+    line-height: 4rem; } }
+@media only screen and (max-width: 789px) {
+  .wrapper h1 {
+    font-size: 2.5rem;
+    line-height: 2.5rem; } }
+@media only screen and (max-width: 789px) {
+  .wrapper h2 {
+    font-size: 1rem; } }
+@media only screen and (min-width: 1500px) {
+  .wrapper h4 {
+    font-size: 2rem; } }
+@media only screen and (max-width: 789px) {
+  .wrapper h4 {
+    font-size: 1.2rem;
+    line-height: 1.75rem; } }
+@media only screen and (min-width: 1500px) {
+  .wrapper p {
+    font-size: 1.3rem; } }
+@media only screen and (max-width: 789px) {
+  .wrapper p {
+    font-size: 1.1rem; } }
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1); }
+  100% {
+    transform: rotate(720deg) scale(1.05); } }
+#canvas {
+  z-index: -9999;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-size: 1.2em; }
+
+::selection {
+  background-color: orange;
+  color: white; }
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .wrapper .hello {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px;
+    text-align: center; }
+  .wrapper .text-wrapper {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px;
+    max-width: 1000px;
+    margin: 0 auto; }
+    @media only screen and (min-width: 1500px) {
+      .wrapper .text-wrapper {
+        max-width: 1200px; } }
+    .wrapper .text-wrapper .left {
+      width: calc(91.66667% - 38.33333px);
+      float: left;
+      margin-left: 20px; }
+      @media only screen and (max-width: 789px) {
+        .wrapper .text-wrapper .left {
+          width: calc(100% - 40px);
+          float: left;
+          margin-left: 20px;
+          margin-bottom: 15px; } }
+    .wrapper .text-wrapper .right {
+      width: calc(8.33333% - 21.66667px);
+      float: left;
+      margin-left: 20px;
+      margin-top: 15px;
+      height: 50px; }
+      .wrapper .text-wrapper .right .icons {
+        width: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px; }
+        .wrapper .text-wrapper .right .icons .fa {
+          transition: all 0.3s ease-in-out;
+          text-shadow: 0 0 15px black; }
+          .wrapper .text-wrapper .right .icons .fa:hover {
+            opacity: .3;
+            animation: spin 500ms 1 forwards ease-in-out;
+            text-shadow: 10px 0 30px black; }
+      @media only screen and (max-width: 789px) {
+        .wrapper .text-wrapper .right {
+          width: calc(100% - 40px);
+          float: left;
+          margin-left: 20px; } }
+
+/*# sourceMappingURL=style.css.map */

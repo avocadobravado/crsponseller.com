@@ -4,7 +4,6 @@
 }
 
 body {
-    background-color: darken(orange, 10%);
     font-size: 1.2em;
 }
 
@@ -14,64 +13,51 @@ body {
 }
 
 .wrapper {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .wrapper-container {
-    margin-top: 2vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: $border-radius;
-    height: 96vh;
-    width: 97.5vw;
-    background: #0f0c29;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, darken(navy, 15%), darken(navy, 12%), darken(navy, 15%));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, darken(navy, 15%), darken(navy, 12%), darken(navy, 15%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    .hello {
-      @include grid-column(12);
-      text-align: center;
+  .hello {
+    @include grid-column(12);
+    text-align: center;
+  }
+  .text-wrapper {
+    @include grid-column(12);
+    max-width: $container;
+    margin: 0 auto;
+    @include large-breakpoint {
+      max-width: 1200px;
     }
-    .text-wrapper {
-      @include grid-column(12);
-      max-width: $container;
-      margin: 0 auto;
-      @include large-breakpoint {
-        max-width: 1200px;
+    .left {
+      @include grid-column(11);
+      @include xs-breakpoint {
+        @include grid-column(12);
+        margin-bottom: $nudge;
       }
-      .left {
-        @include grid-column(10);
-        @include xs-breakpoint {
-          @include grid-column(12);
-          margin-bottom: $nudge;
-        }
-      }
-      .right {
-        @include grid-column(2);
-        margin-top: $nudge;
-        height: 50px;
+    }
+    .right {
+      @include grid-column(1);
+      margin-top: $nudge;
+      height: 50px;
+      .icons {
+        width: 100px;
         display: flex;
-        justify-content: flex-end;
-        .icons {
-          width: 100px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          height: 100px;
-          .fa {
-            transition: $transition;
-            text-shadow: 0 0 15px black;
-            &:hover {
-              opacity: .3;
-              animation: spin 500ms 1 forwards ease-in-out;
-              text-shadow: 10px 0 30px black;
-            }
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        .fa {
+          transition: $transition;
+          text-shadow: 0 0 15px black;
+          &:hover {
+            opacity: .3;
+            animation: spin 500ms 1 forwards ease-in-out;
+            text-shadow: 10px 0 30px black;
           }
         }
-        @include xs-breakpoint {
-          @include grid-column(12);
-        }
+      }
+      @include xs-breakpoint {
+        @include grid-column(12);
       }
     }
   }
