@@ -48,11 +48,7 @@ var fShader = `
 		// They were added to pixelPosition, within the modulus operations.
 		//float xOffset = mod( u_resolution.x, u_dotSize ) / 2.0;
 		//float yOffset = mod( u_resolution.y, u_dotSize ) / 2.0;
-<<<<<<< HEAD:javascript/shaders-halftone.js
 
-=======
-
->>>>>>> 0f667b2a883aa3633d34a0a907f6352e07f7190e:js/shaders-halftone.js
 		// Calculate distance on both axes to a range of -1.0 � 1.0.
 		float distanceX = mod(pixelPosition.x, u_dotSize) / u_dotSize * 2.0 - 1.0;
 		float distanceY = mod(pixelPosition.y, u_dotSize) / u_dotSize * 2.0 - 1.0;
@@ -153,8 +149,8 @@ function extractColor( cssValue )
 
 	// This line extracts just the number values
 	// via https://stackoverflow.com/a/1183906
-	var array = cssValue.match(/\d+/g);
-	return [array[0]/255, array[1]/255, array[2]/255, 1.0];
+	var array = cssValue.match(/\d.\d+/g);
+	return [array[0]/255, array[1]/255, array[2]/255, ( array.length === 4 ? array[3] : 1.0)];
 }
 
 function render(time)
