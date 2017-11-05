@@ -7,4 +7,18 @@
   width: 100vw;
   margin: 0;
   padding: 0;
+  background-color: lighten(#52C6B0, 5%);
+  color: darken(#52C6B0, 5%);
+}
+
+a {
+  color: aqua;
+}
+
+* {
+  text-shadow: 1px 3px 10px darken(#52C6B0, 5%);
+}
+
+.fa {
+  opacity: .8 !important;
 }

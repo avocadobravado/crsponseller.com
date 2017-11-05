@@ -1,7 +1,7 @@
 body {
   font-family: "Work Sans", sans-serif;
   letter-spacing: 0.03em;
-  color: #cccccc; }
+  color: #fafafa; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0; }
@@ -14,11 +14,10 @@ h1 {
   line-height: 6rem;
   font-family: "BioRhyme", serif;
   text-transform: uppercase;
-  text-shadow: 3px 0 50px #00001a;
   margin-bottom: 10px; }
 
 h2 {
-  color: orange; }
+  color: white; }
 
 h4 {
   font-size: 1.38em; }
@@ -28,7 +27,6 @@ p {
   line-height: 1.85em; }
 
 a {
-  color: orange;
   position: relative;
   display: inline-block;
   text-decoration: none;
@@ -109,7 +107,18 @@ a:hover:before, a:hover:after {
   height: 100vh;
   width: 100vw;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  background-color: #65ccb9;
+  color: #3fbfa7; }
+
+a {
+  color: aqua; }
+
+* {
+  text-shadow: 1px 3px 10px #3fbfa7; }
+
+.fa {
+  opacity: .8 !important; }
 
 * {
   margin: 0;
@@ -143,7 +152,7 @@ body {
       .wrapper .text-wrapper {
         max-width: 1200px; } }
     .wrapper .text-wrapper .left {
-      width: calc(91.66667% - 38.33333px);
+      width: calc(83.33333% - 36.66667px);
       float: left;
       margin-left: 20px; }
       @media only screen and (max-width: 789px) {
@@ -153,7 +162,7 @@ body {
           margin-left: 20px;
           margin-bottom: 15px; } }
     .wrapper .text-wrapper .right {
-      width: calc(8.33333% - 21.66667px);
+      width: calc(16.66667% - 23.33333px);
       float: left;
       margin-left: 20px;
       margin-top: 15px;
@@ -166,7 +175,7 @@ body {
         height: 100px; }
         .wrapper .text-wrapper .right .icons .fa {
           transition: all 0.3s ease-in-out;
-          text-shadow: 0 0 15px black; }
+          text-shadow: 0 0 15px #004d00; }
           .wrapper .text-wrapper .right .icons .fa:hover {
             opacity: .3;
             animation: spin 500ms 1 forwards ease-in-out;

@@ -30,14 +30,14 @@ body {
       max-width: 1200px;
     }
     .left {
-      @include grid-column(11);
+      @include grid-column(10);
       @include xs-breakpoint {
         @include grid-column(12);
         margin-bottom: $nudge;
       }
     }
     .right {
-      @include grid-column(1);
+      @include grid-column(2);
       margin-top: $nudge;
       height: 50px;
       .icons {
@@ -48,7 +48,7 @@ body {
         height: 100px;
         .fa {
           transition: $transition;
-          text-shadow: 0 0 15px black;
+          text-shadow: 0 0 15px darken(green, 10%);
           &:hover {
             opacity: .3;
             animation: spin 500ms 1 forwards ease-in-out;
