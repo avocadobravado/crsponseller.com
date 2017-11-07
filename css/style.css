@@ -108,11 +108,11 @@ a:hover:before, a:hover:after {
   width: 100vw;
   margin: 0;
   padding: 0;
-  background-color: #65ccb9;
-  color: #3fbfa7; }
+  background-color: #78d3c2;
+  color: #65ccb9; }
 
 a {
-  color: aqua; }
+  color: yellow; }
 
 * {
   text-shadow: 1px 3px 10px #3fbfa7; }
