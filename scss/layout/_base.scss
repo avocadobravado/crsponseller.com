@@ -48,7 +48,6 @@ body {
         height: 100px;
         .fa {
           transition: $transition;
-          text-shadow: 0 0 15px darken(green, 10%);
           &:hover {
             opacity: .3;
             animation: spin 500ms 1 forwards ease-in-out;

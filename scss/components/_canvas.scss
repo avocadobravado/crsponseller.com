@@ -16,9 +16,10 @@ a {
 }
 
 * {
-  text-shadow: 1px 3px 10px darken(#52C6B0, 5%);
+  text-shadow: 1px 3px 5px darken(#52C6B0, 5%);
 }
 
 .fa {
   opacity: .8 !important;
+  text-shadow: 0 0 15px darken(red, 10%);
 }

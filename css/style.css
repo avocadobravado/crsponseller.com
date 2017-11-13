@@ -115,10 +115,11 @@ a {
   color: yellow; }
 
 * {
-  text-shadow: 1px 3px 10px #3fbfa7; }
+  text-shadow: 1px 3px 5px #3fbfa7; }
 
 .fa {
-  opacity: .8 !important; }
+  opacity: .8 !important;
+  text-shadow: 0 0 15px #cc0000; }
 
 * {
   margin: 0;
@@ -174,8 +175,7 @@ body {
         align-items: center;
         height: 100px; }
         .wrapper .text-wrapper .right .icons .fa {
-          transition: all 0.3s ease-in-out;
-          text-shadow: 0 0 15px #004d00; }
+          transition: all 0.3s ease-in-out; }
           .wrapper .text-wrapper .right .icons .fa:hover {
             opacity: .3;
             animation: spin 500ms 1 forwards ease-in-out;
