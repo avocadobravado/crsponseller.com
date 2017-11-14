@@ -119,7 +119,9 @@ a {
 
 .fa {
   opacity: .8 !important;
-  text-shadow: 0 0 15px #cc0000; }
+  text-shadow: 0 0 15px #39ac96; }
+  .fa:hover {
+    text-shadow: 10px 0 30px #2c8675; }
 
 * {
   margin: 0;
@@ -178,8 +180,7 @@ body {
           transition: all 0.3s ease-in-out; }
           .wrapper .text-wrapper .right .icons .fa:hover {
             opacity: .3;
-            animation: spin 500ms 1 forwards ease-in-out;
-            text-shadow: 10px 0 30px black; }
+            animation: spin 500ms 1 forwards ease-in-out; }
       @media only screen and (max-width: 789px) {
         .wrapper .text-wrapper .right {
           width: calc(100% - 40px);

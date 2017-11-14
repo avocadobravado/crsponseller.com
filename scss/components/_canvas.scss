@@ -21,5 +21,8 @@ a {
 
 .fa {
   opacity: .8 !important;
-  text-shadow: 0 0 15px darken(red, 10%);
+  text-shadow: 0 0 15px darken(#52C6B0, 10%);
+  &:hover {
+    text-shadow: 10px 0 30px darken(#52C6B0, 20%);
+  }
 }
