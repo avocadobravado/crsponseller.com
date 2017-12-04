@@ -1,7 +1,7 @@
 body {
   font-family: $primary-font;
   letter-spacing: $letter-spacing;
-  color: lighten(black, 80%);
+  color: #EDDDBE;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -16,12 +16,11 @@ h1 {
   line-height: 6rem;
   font-family: $secondary-font;
   text-transform: uppercase;
-  text-shadow: 3px 0 50px darken(navy, 20%);
   margin-bottom: 10px;
 }
 
 h2 {
-  color: orange;
+  color: #EDDDBE;
 }
 
 h4 {
@@ -34,7 +33,6 @@ p {
 }
 
 a {
-  color: orange;
   position: relative;
   display: inline-block;
   text-decoration: none;
