@@ -1,7 +1,7 @@
 body {
   font-family: "Work Sans", sans-serif;
-  letter-spacing: 0.03em;
-  color: #EDDDBE; }
+  letter-spacing: 0.035em;
+  color: #fafafa; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0; }
@@ -10,14 +10,14 @@ h1, h2, h4 {
   margin-bottom: 15px; }
 
 h1 {
-  font-size: 5.5rem;
+  font-size: 5rem;
   line-height: 6rem;
   font-family: "BioRhyme", serif;
   text-transform: uppercase;
   margin-bottom: 10px; }
 
 h2 {
-  color: #EDDDBE; }
+  color: #fafafa; }
 
 h4 {
   font-size: 1.38em; }
@@ -39,7 +39,7 @@ a {
 
 .link:before, .link:after {
   content: '';
-  background: orange;
+  background: #3AE7A0;
   position: absolute;
   width: 0;
   height: 2px;
@@ -58,37 +58,9 @@ a {
 a:hover:before, a:hover:after {
   width: 100%; }
 
-@media only screen and (min-width: 1500px) {
-  .wrapper h1 {
-    font-size: 6.6rem;
-    line-height: 7rem; } }
-@media only screen and (max-width: 1160px) {
-  .wrapper h1 {
-    font-size: 5rem; } }
-@media only screen and (max-width: 964px) {
-  .wrapper h1 {
-    font-size: 4rem;
-    line-height: 4rem; } }
 @media only screen and (max-width: 789px) {
   .wrapper h1 {
-    font-size: 2.5rem;
-    line-height: 2.5rem; } }
-@media only screen and (max-width: 789px) {
-  .wrapper h2 {
-    font-size: 1rem; } }
-@media only screen and (min-width: 1500px) {
-  .wrapper h4 {
-    font-size: 2rem; } }
-@media only screen and (max-width: 789px) {
-  .wrapper h4 {
-    font-size: 1.2rem;
-    line-height: 1.75rem; } }
-@media only screen and (min-width: 1500px) {
-  .wrapper p {
-    font-size: 1.3rem; } }
-@media only screen and (max-width: 789px) {
-  .wrapper p {
-    font-size: 1.1rem; } }
+    font-size: 2.5rem; } }
 
 .content-wrapper {
   display: flex;
@@ -107,16 +79,21 @@ a:hover:before, a:hover:after {
   height: 100vh;
   width: 100vw;
   margin: 0;
-  padding: 0; `
-  background-color: #eb4738;
-  color: #f57953; }
+  padding: 0;
+  background-color: #444477;
+  color: #444477; }
+
+* {
+  text-shadow: 1px 3px 5px #23e495; }
 
 #dots {
-  background-color: #323A6B;
-  color: #4A638A; }
+  background-color: #444477;
+  color: #444477;
+  background-color: #32324F;
+  color: #32324F; }
 
 a {
-  color: yellow; }
+  color: #3AE7A0; }
 
 * {
   text-shadow: 1px 3px 5px #1f1b40; }
@@ -135,8 +112,8 @@ body {
   font-size: 1.2em; }
 
 ::selection {
-  background-color: orange;
-  color: white; }
+  background-color: #3AE7A0;
+  color: #32324F; }
 
 .wrapper {
   height: 100vh;
@@ -153,13 +130,13 @@ body {
     width: calc(100% - 40px);
     float: left;
     margin-left: 20px;
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto; }
     @media only screen and (min-width: 1500px) {
       .wrapper .text-wrapper {
         max-width: 1200px; } }
     .wrapper .text-wrapper .left {
-      width: calc(91.6666666667% - 38.3333333333px);
+      width: calc(83.3333333333% - 36.6666666667px);
       float: left;
       margin-left: 20px; }
       @media only screen and (max-width: 789px) {
@@ -169,7 +146,7 @@ body {
           margin-left: 20px;
           margin-bottom: 15px; } }
     .wrapper .text-wrapper .right {
-      width: calc(8.3333333333% - 21.6666666667px);
+      width: calc(16.6666666667% - 23.3333333333px);
       float: left;
       margin-left: 20px;
       margin-top: 15px;

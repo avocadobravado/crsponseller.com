@@ -1,1 +1,1 @@
-## Splash page, future home of crsponseller.com
+## Porfolio of Cory Sponseller at http://crsponseller.com

@@ -1,7 +1,7 @@
 body {
   font-family: $primary-font;
   letter-spacing: $letter-spacing;
-  color: #EDDDBE;
+  color: $snow;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -12,7 +12,7 @@ h1, h2, h4 {
 }
 
 h1 {
-  font-size: 5.5rem;
+  font-size: 5rem;
   line-height: 6rem;
   font-family: $secondary-font;
   text-transform: uppercase;
@@ -20,7 +20,7 @@ h1 {
 }
 
 h2 {
-  color: #EDDDBE;
+  color: $snow;
 }
 
 h4 {
@@ -47,7 +47,7 @@ a {
 
 .link:before, .link:after {
   content: '';
-  background: orange;
+  background: $malachite;
   position: absolute;
   width: 0;
   height: 2px;
@@ -73,42 +73,42 @@ a:hover:before, a:hover:after {
 .wrapper {
   h1 {
     @include large-breakpoint {
-      font-size: 6.6rem;
-      line-height: 7rem;
+      // font-size: 6.6rem;
+      // line-height: 7rem;
     }
     @include medium-breakpoint {
-      font-size: 5rem;
+      // font-size: 5rem;
     }
     @include small-breakpoint {
-      font-size: 4rem;
-      line-height: 4rem;
+      // font-size: 4rem;
+      // line-height: 4rem;
     }
 
     @include xs-breakpoint {
       font-size: 2.5rem;
-      line-height: 2.5rem;
+      // line-height: 2.5rem;
     }
   }
   h2 {
     @include xs-breakpoint {
-      font-size: 1rem;
+      // font-size: 1rem;
     }
   }
   h4 {
     @include large-breakpoint {
-      font-size: 2rem;
+      // font-size: 2rem;
     }
     @include xs-breakpoint {
-      font-size: 1.2rem;
-      line-height: 1.75rem;
+      // font-size: 1.2rem;
+      // line-height: 1.75rem;
     }
   }
   p {
     @include large-breakpoint {
-      font-size: 1.3rem;
+      // font-size: 1.3rem;
     }
     @include xs-breakpoint {
-      font-size: 1.1rem;
+      // font-size: 1.1rem;
     }
   }
 

@@ -1,7 +1,7 @@
 // Typography
 $primary-font: 'Work Sans', sans-serif;
 $secondary-font: 'BioRhyme', serif;
-$letter-spacing: 0.03em;
+$letter-spacing: 0.035em;
 
 // Breakpoints
 $xs-bp: "only screen and (max-width: 789px)";
@@ -10,9 +10,15 @@ $medium-bp: "only screen and (max-width: 1160px)";
 $large-bp: "only screen and (min-width: 1500px)";
 
 // Grid
-$container: 1000px;
+$container: 900px;
 
 // Style cohesion
 $nudge: 15px;
 $border-radius: 3px;
 $transition: all .3s ease-in-out;
+
+// Color
+$malachite: #3AE7A0;
+$jacarta: #32324F;
+$east-bay: #444477;
+$snow: #fafafa;
