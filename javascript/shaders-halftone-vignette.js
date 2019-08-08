@@ -2,7 +2,7 @@
 // http://weber.itn.liu.se/~stegu/webglshadertutorial/shadertutorial.html
 
 // I didn't want to dump all this shader code into the
-// HTML, and it seemed that putting them all in javascript,
+// HTML, and it seems that putting them all in javascript,
 // as text strings, was the easiest alternative.
 
 var vShader = `
@@ -37,8 +37,10 @@ var fShader = `
 	uniform float u_gradientWidth;
 	uniform float u_gridAngle;
 
-	uniform vec4 bgColor;
-	uniform vec4 dotColor;
+	uniform vec4 bgColor1;
+	uniform vec4 bgColor2;
+	uniform vec4 dotColor1;
+	uniform vec4 dotColor2;
 
 
 	float lengthToNearestDot( vec2 pixelPosition )
@@ -50,18 +52,20 @@ var fShader = `
 		//float yOffset = mod( u_resolution.y, u_dotSize ) / 2.0;
 
 		// Calculate distance on both axes to a range of -1.0 � 1.0.
-		float distanceX = mod(pixelPosition.x, u_dotSize) / u_dotSize * 2.0 - 1.0;
-		float distanceY = mod(pixelPosition.y, u_dotSize) / u_dotSize * 2.0 - 1.0;
+		float distanceX = mod(pixelPosition.x - u_dotSize * 0.5, u_dotSize) / u_dotSize * 2.0 - 1.0;
+		float distanceY = mod(pixelPosition.y - u_dotSize * 0.5, u_dotSize) / u_dotSize * 2.0 - 1.0;
 		// 0.7 is a stand-in for half the square root of 2, which
 		// is the distance from the center of a unit square to a corner.
-		return sqrt( distanceX * distanceX + distanceY * distanceY ) * 0.7;
+		return sqrt( distanceX * distanceX + distanceY * distanceY ) * 0.7 * 0.95 + 0.025;
 	}
 
-	// Returns 1 if x and y are equal, 0 if not. Used to avoid If-Else.
-	// via http://theorangeduck.com/page/avoiding-shader-conditionals
+	// The following method is used to avoid If-Else branches.
+	// They are via http://theorangeduck.com/page/avoiding-shader-conditionals
+
+	// Returns 1 if a and b are equal, 0 if not. 	
 	float whenEqual( float a, float b )
 	{
-  		return 1.0 - abs( sign(a - b));
+  		return 1.0 - abs( sign(a-b) );
 	}
 
 	float calculateGradientValue( )
@@ -70,27 +74,17 @@ var fShader = `
 		vec2 gradientPosition = gl_FragCoord.xy / u_resolution.xy;
 		// Offset so that the coords are pivoted at screen center.
 		gradientPosition -= 0.5;
+		// I want the vignetting to be strongest on the left and right sides, so
+		// I calculate Y positions as being nearer to center than they really are.
+		gradientPosition.y *= 0.8;
+		// Undo the offset
+        gradientPosition += 0.5;
 
-		// Transform (rotate) gradient value according to u_gradientAngle
-		float gradientRadians = u_gradientAngle * PI / 180.0;
-		gradientPosition = mat2( cos( gradientRadians ),
-								-sin( gradientRadians ),
-								 sin(gradientRadians),
-								 cos( gradientRadians )) * gradientPosition;
-		// Revert that previous offset.
-		gradientPosition += 0.5;
-
-		// Vignetting
-		float screenSizeMax = max( u_resolution.x, u_resolution.y );
+		// Vignetting math
 		float vignette = 1.0 - sqrt( pow( abs( gradientPosition.x - 0.5 ), 2.0 ) + pow( abs( gradientPosition.y - 0.5 ), 2.0 ));
-
-		// Determine if screen is smallest on x or y axis.
-		float screenSize = min( u_resolution.x, u_resolution.y );
-		// Use that to determine which element of our position is relevant.
-		float gradient = gradientPosition.x * whenEqual( screenSize, u_resolution.x ) +
-						 gradientPosition.y * whenEqual( screenSize, u_resolution.y );
-		float gradientMinPos = 0.5 - u_gradientWidth * 0.5;
-		return ( gradient - gradientMinPos ) / u_gradientWidth;
+        float gradientMinPos = 0.5 - u_gradientWidth * 0.5;
+        
+		return ( vignette - gradientMinPos ) / u_gradientWidth + 0.1;
 	}
 
 	float frequency = 30.0; // Needed globally for fallback version of aastep()
@@ -109,10 +103,7 @@ var fShader = `
 		float gradient = calculateGradientValue();
 
 		float animation = sin( PI * 2.0 * u_time * u_frequency ) * u_amplitude;
-		gradient = clamp( gradient + animation, 0.0, 1.0 );
-
-		//gl_FragColor = vec4( gradient, gradient, gradient, 1.0 );
-		//return;
+		gradient = pow( clamp( gradient + animation, 0.0, 1.0 ), 2.0 );
 
 		// Transform (rotate) the dot grid according to u_gridAngle
 		float gridAngleRad = u_gridAngle * PI / 180.0;
@@ -120,18 +111,21 @@ var fShader = `
 								 -sin( gridAngleRad ),
 								  sin(gridAngleRad),
 								  cos( gridAngleRad )) * gl_FragCoord.xy;
-
+		
+		// Calculate the vertical gradients.
+		float verticalGradient = clamp( (gl_FragCoord.y / u_resolution.y) * 1.2 - 0.1, 0.0, 1.0 );
 		float toNearestDot = lengthToNearestDot( gridPosition );
-		float radius = sqrt( 1.0 - gradient );
-		vec4 fragcolor = mix( dotColor, bgColor, aastep( 1.0 - gradient, toNearestDot ));
-		gl_FragColor = vec4( fragcolor );
+		gl_FragColor = mix( mix( dotColor1, dotColor2, verticalGradient ), 
+		                    mix( bgColor1, bgColor2, verticalGradient ), 
+	                        aastep( 1.0 - gradient, toNearestDot ));
 	}
 `
 
 // The rest of this file is pretty directly
 // taken from the TWGL "tiniest example".
 const gl = document.getElementById( "canvas" ).getContext( "webgl" );
-var style = window.getComputedStyle( document.getElementById( "canvas" ));
+var canvasStyle = window.getComputedStyle( document.getElementById( "canvas" ));
+var dotStyle = window.getComputedStyle( document.getElementById( "dots" ));
 const programInfo = twgl.createProgramInfo( gl, [vShader, fShader] );
 
 // 3d vectors for six positions (composing a single quad)
@@ -148,8 +142,8 @@ function extractColor( cssValue )
 
 	// This line extracts just the number values
 	// via https://stackoverflow.com/a/1183906
-	var array = cssValue.match(/\d.\d+/g);
-	return [array[0]/255, array[1]/255, array[2]/255, ( array.length === 4 ? array[3] : 1.0)];
+	var array = cssValue.match(/\d+/g);
+	return [array[0]/255, array[1]/255, array[2]/255, 1.0];
 }
 
 function render(time)
@@ -160,24 +154,26 @@ function render(time)
 	const uniforms = {
 		u_resolution: [gl.canvas.width, gl.canvas.height],
 		// These two are used for the antialiasing step function.
-		uScale: 10.0,
+		uScale: 7.5,
 		uYrot: 1.0,
 		// Size of each 'cell'
-		u_dotSize: 15,
-		// Don't adjust this one directly.
-		u_time: time * 0.0009,
+		u_dotSize: 28,
+		// Don't adjust this one directly!
+		u_time: time * 0.001,
 		// Speed of the animation
-		u_frequency: 0.05,
+		u_frequency: 0.1,
 		// Size of the animation (how much of the screen it moves across)
-		u_amplitude: 0.5,
+		u_amplitude: 0.15,
 		// Angle of the dot grid
 		u_gridAngle: 0.0,
 		// Angle of the gradient
-		u_gradientAngle: 45.0,
-		// Scalar value determine
-		u_gradientWidth: 1,
-		bgColor: extractColor( style.getPropertyValue('background-color')),
-		dotColor: extractColor( style.getPropertyValue('color')),
+		u_gradientAngle: 0.0,
+		// Size of the gradient 'band' itself
+		u_gradientWidth: 0.4,
+		bgColor1: extractColor( canvasStyle.getPropertyValue('background-color')),
+		bgColor2: extractColor( canvasStyle.getPropertyValue('color')),
+		dotColor1: extractColor( dotStyle.getPropertyValue('background-color')),
+		dotColor2: extractColor( dotStyle.getPropertyValue('color'))
 	};
 
 	gl.useProgram(programInfo.program);
