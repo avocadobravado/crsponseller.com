@@ -130,16 +130,15 @@ var fShader = `
 
 // The rest of this file is pretty directly
 // taken from the TWGL "tiniest example".
-
-const wgl = document.getElementById( "canvas" ).getContext( "webgl" );
-const programInfo = twgl.createProgramInfo( wgl, [vShader, fShader] );
+const gl = document.getElementById( "canvas" ).getContext( "webgl" );
 var style = window.getComputedStyle( document.getElementById( "canvas" ));
+const programInfo = twgl.createProgramInfo( gl, [vShader, fShader] );
 
 // 3d vectors for six positions (composing a single quad)
 const arrays = {
 	position: [-1, -1, 0, 1, -1, 0, -1, 1, 0, -1, 1, 0, 1, -1, 0, 1, 1, 0],
 };
-const bufferInfo = twgl.createBufferInfoFromArrays(wgl, arrays);
+const bufferInfo = twgl.createBufferInfoFromArrays(gl, arrays);
 
 // Convert an RGB(A) value (from CSS) to an array of scalar values.
 function extractColor( cssValue )
@@ -155,36 +154,36 @@ function extractColor( cssValue )
 
 function render(time)
 {
-	twgl.resizeCanvasToDisplaySize(wgl.canvas);
-	wgl.viewport(0, 0, wgl.canvas.width, wgl.canvas.height);
+	twgl.resizeCanvasToDisplaySize(gl.canvas);
+	gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
 	const uniforms = {
-		u_resolution: [wgl.canvas.width, wgl.canvas.height],
+		u_resolution: [gl.canvas.width, gl.canvas.height],
 		// These two are used for the antialiasing step function.
 		uScale: 10.0,
 		uYrot: 1.0,
 		// Size of each 'cell'
-		u_dotSize: 32,
+		u_dotSize: 15,
 		// Don't adjust this one directly.
-		u_time: time * 0.001,
+		u_time: time * 0.0009,
 		// Speed of the animation
 		u_frequency: 0.05,
 		// Size of the animation (how much of the screen it moves across)
 		u_amplitude: 0.5,
 		// Angle of the dot grid
-		u_gridAngle: 45.0,
+		u_gridAngle: 0.0,
 		// Angle of the gradient
 		u_gradientAngle: 45.0,
 		// Scalar value determine
-		u_gradientWidth: 0.333333,
+		u_gradientWidth: 1,
 		bgColor: extractColor( style.getPropertyValue('background-color')),
 		dotColor: extractColor( style.getPropertyValue('color')),
 	};
 
-	wgl.useProgram(programInfo.program);
-	twgl.setBuffersAndAttributes(wgl, programInfo, bufferInfo);
+	gl.useProgram(programInfo.program);
+	twgl.setBuffersAndAttributes(gl, programInfo, bufferInfo);
 	twgl.setUniforms(programInfo, uniforms);
-	twgl.drawBufferInfo(wgl, bufferInfo);
+	twgl.drawBufferInfo(gl, bufferInfo);
 
 	requestAnimationFrame(render);
 }

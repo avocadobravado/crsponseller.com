@@ -9,6 +9,24 @@
   padding: 0;
   background-color: #eb4738;
   color: #f57953;
+  background-color: lighten(#52C6B0, 10%);
+  color: lighten(#52C6B0, 5%);
+}
+
+a {
+  color: yellow;
+}
+
+* {
+  text-shadow: 1px 3px 5px darken(#52C6B0, 5%);
+}
+
+.fa {
+  opacity: .8 !important;
+  text-shadow: 0 0 15px darken(#52C6B0, 10%);
+  &:hover {
+    text-shadow: 10px 0 30px darken(#52C6B0, 20%);
+  }
 }
 
 #dots
