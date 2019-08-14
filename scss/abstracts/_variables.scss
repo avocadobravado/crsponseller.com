@@ -1,7 +1,7 @@
 // Typography
 $primary-font: 'Work Sans', sans-serif;
 $secondary-font: 'BioRhyme', serif;
-$letter-spacing: 0.035em;
+$letter-spacing: 0.055em;
 
 // Breakpoints
 $xs-bp: "only screen and (max-width: 789px)";
@@ -16,6 +16,7 @@ $container: 900px;
 $nudge: 15px;
 $border-radius: 3px;
 $transition: all .3s ease-in-out;
+$text-shadow: 1px 3px 5px darken(#3AE7A0, 5%);
 
 // Color
 $malachite: #3AE7A0;

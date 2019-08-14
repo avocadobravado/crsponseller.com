@@ -16,7 +16,7 @@ h1 {
   line-height: 6rem;
   font-family: $secondary-font;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: $nudge;
 }
 
 h2 {
@@ -42,7 +42,7 @@ a {
 }
 
 .link:hover {
-  color: white;
+  color: $snow;
 }
 
 .link:before, .link:after {

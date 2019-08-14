@@ -1,19 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-    font-size: 1.2em;
-}
-
-::selection {
-  background-color: $malachite;
-  color: $jacarta;
-}
-
 .wrapper {
-  height: 100vh;
+  height: 98vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -60,3 +46,42 @@ body {
     }
   }
 }
+
+.main {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $malachite;
+  .main-content {
+    background-color: cornflowerblue;
+    @include grid-column(12);
+    .main-description {
+      background-color: red;
+      @include grid-column(5);
+      @include xs-breakpoint {
+        @include grid-column(12);
+      }
+    }
+    .main-img {
+      background-color: blue;
+      @include grid-column(7);
+      @include xs-breakpoint {
+        @include grid-column(12);
+        margin-top: $nudge;
+      }
+    }
+  }
+}
+
+// .left {
+//   @include grid-column(10);
+//   @include xs-breakpoint {
+//     @include grid-column(12);
+//     margin-bottom: $nudge;
+//   }
+// }
+// .right {
+//   @include grid-column(2);
+//   margin-top: $nudge;
+//   height: 50px;

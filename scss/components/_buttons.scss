@@ -1,0 +1,66 @@
+.read-more-button {
+    display: block;
+    max-width: 300px;
+    margin: $nudge auto;
+    width: 180px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: $east-bay;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid $east-bay;
+    transition: .5s;
+    overflow: hidden;
+    background-color: white;
+    text-shadow: none;
+}
+
+
+// button {
+// 	position: relative;
+// 	width: 100%;
+// 	padding: 8px 16px;
+// 	font: bold 20px/40px arial;
+// 	text-transform: uppercase;
+// 	cursor: pointer;
+// 	color: #333;
+// 	border: 3px solid #333;
+// 	box-shadow: inset 3px 3px 0 #fff;
+// 	background-color: #3fd;
+// 	overflow: hidden;
+// 	user-select: none;
+// 	outline: none;
+// }
+
+// button:hover {
+// 	cursor: pointer;
+// 	background-color: #2ec;
+// 	box-shadow: inset 3px 3px 0 #fff, 3px 3px 0 rgba(0, 0, 0, 0.2);
+// }
+
+// button:active {
+// 	box-shadow: none;
+// 	transform: translate(3px, 3px);
+// 	color: rgba(0, 0, 0, 0.5);
+// 	border-color: rgba(0, 0, 0, 0.5);
+// }
+
+// .ripple {
+// 	display: block;
+// 	position: absolute;
+// 	background: rgba(0, 0, 0, .1);
+// 	border-radius: 50%;
+// 	transform: scale(0);
+// }
+
+// .ripple.animate {
+// 	animation: effect 0.5s ease-in;
+// }
+
+// @keyframes effect {
+// 	100% {
+// 		opacity: 0;
+// 		transform: scale(2.5);
+// 	}
+// }
