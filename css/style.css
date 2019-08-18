@@ -84,11 +84,17 @@ a:hover:before, a:hover:after {
   color: #444477;
   text-transform: uppercase;
   text-decoration: none;
-  border: 2px solid #444477;
+  font-weight: bold;
+  border: 2px solid #32324F;
+  border-radius: 10px;
   transition: .5s;
   overflow: hidden;
-  background-color: white;
-  text-shadow: none; }
+  background-color: #32324F;
+  text-shadow: none;
+  color: #fafafa; }
+  .read-more-button:hover {
+    background-color: transparent;
+    color: #32324F; }
 
 @keyframes spin {
   0% {
@@ -179,18 +185,26 @@ a {
           margin-left: 20px; } }
 
 .main {
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: #3AE7A0; }
+  .main h2, .main p {
+    text-shadow: none;
+    text-align: center;
+    color: #32324F; }
+  .main h2 {
+    font-family: "BioRhyme", serif;
+    margin-bottom: 15px; }
+  .main p {
+    margin-bottom: 15px;
+    text-align: left; }
   .main .main-content {
-    background-color: cornflowerblue;
     width: calc(100% - 40px);
     float: left;
     margin-left: 20px; }
     .main .main-content .main-description {
-      background-color: red;
       width: calc(41.6666666667% - 28.3333333333px);
       float: left;
       margin-left: 20px; }
@@ -210,5 +224,99 @@ a {
           float: left;
           margin-left: 20px;
           margin-top: 15px; } }
+
+.panel-two {
+  background-color: #444477; }
+  .panel-two p, .panel-two h2 {
+    color: #fafafa; }
+  .panel-two .read-more-button {
+    background-color: #fafafa;
+    border: 2px solid #fafafa;
+    color: #444477; }
+    .panel-two .read-more-button:hover {
+      background-color: transparent;
+      color: #fafafa; }
+
+.panel-three {
+  background-color: #32324F; }
+  .panel-three p, .panel-three h2 {
+    color: #fafafa; }
+  .panel-three .read-more-button {
+    background-color: #fafafa;
+    border: 2px solid #fafafa;
+    color: #444477; }
+    .panel-three .read-more-button:hover {
+      background-color: transparent;
+      color: #fafafa; }
+
+.contact .contact-wrapper {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 960px;
+  margin: 0 auto; }
+  .contact .contact-wrapper .bottom-icons {
+    width: 200px; }
+    .contact .contact-wrapper .bottom-icons ul {
+      display: flex;
+      justify-content: space-between;
+      list-style-type: none;
+      padding: 0; }
+      .contact .contact-wrapper .bottom-icons ul li {
+        margin: 0;
+        padding: 0;
+        font-size: 25px; }
+        .contact .contact-wrapper .bottom-icons ul li:hover {
+          opacity: 0.7;
+          transform: translateY(-0.1em); }
+  .contact .contact-wrapper h2 {
+    font-size: 2em;
+    text-align: center; }
+  .contact .contact-wrapper p {
+    text-align: center;
+    font-size: 1.2em;
+    width: 70%;
+    max-width: 800px;
+    margin: 0; }
+  .contact .contact-wrapper form {
+    margin: 0 auto;
+    width: 60%; }
+    @media only screen and (max-width: 964px) {
+      .contact .contact-wrapper form {
+        width: 80%; } }
+    .contact .contact-wrapper form input, .contact .contact-wrapper form textarea {
+      padding: 7px 5px;
+      width: 95%;
+      display: block;
+      margin: 15px auto;
+      border: 2px solid transparent;
+      outline: none; }
+      .contact .contact-wrapper form input:focus, .contact .contact-wrapper form textarea:focus {
+        opacity: 0.8; }
+    .contact .contact-wrapper form input {
+      height: 25px; }
+    .contact .contact-wrapper form input[type=text], .contact .contact-wrapper form input[type=email] {
+      font-size: 0.8em; }
+    .contact .contact-wrapper form textarea {
+      height: 100px;
+      font-size: 0.8em; }
+
+textarea::-webkit-input-placeholder {
+  color: red; }
+
+textarea:-moz-placeholder {
+  /* Firefox 18- */
+  color: red; }
+
+textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  color: red; }
+
+textarea:-ms-input-placeholder {
+  color: red; }
 
 /*# sourceMappingURL=style.css.map */
