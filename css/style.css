@@ -185,10 +185,11 @@ a {
           margin-left: 20px; } }
 
 .main {
-  height: 100vh;
+  height: 98vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: #3AE7A0; }
   .main h2, .main p {
     text-shadow: none;
@@ -203,7 +204,9 @@ a {
   .main .main-content {
     width: calc(100% - 40px);
     float: left;
-    margin-left: 20px; }
+    margin-left: 20px;
+    max-width: 900px;
+    margin: 0 auto; }
     .main .main-content .main-description {
       width: calc(41.6666666667% - 28.3333333333px);
       float: left;
@@ -260,7 +263,7 @@ a {
   max-width: 960px;
   margin: 0 auto; }
   .contact .contact-wrapper .bottom-icons {
-    width: 200px; }
+    width: 80px; }
     .contact .contact-wrapper .bottom-icons ul {
       display: flex;
       justify-content: space-between;
@@ -294,6 +297,7 @@ a {
       display: block;
       margin: 15px auto;
       border: 2px solid transparent;
+      border-radius: 3px;
       outline: none; }
       .contact .contact-wrapper form input:focus, .contact .contact-wrapper form textarea:focus {
         opacity: 0.8; }
