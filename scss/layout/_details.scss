@@ -1,0 +1,57 @@
+
+body {
+    background-color: $jacarta;
+}
+
+.header {
+  background: $snow;
+  width: 100%;
+  padding: 1rem;
+  position: fixed;
+  margin: 0;
+  top: 0;
+  h1 {
+    color:$snow;
+    line-height: 1;
+    margin: 0;
+  }
+}
+.container {
+  max-width: 80%;
+  margin: .5rem auto;
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
+.logo {
+  float: left;
+}
+nav[role="navigation"] {
+  float: right;
+  ul {
+    list-style: none inside;
+  }
+  li {
+    display: inline-block;
+    text-align: center;
+    padding: .5rem 1rem;
+  }
+  a {
+    color: $snow;
+    text-decoration: none;
+  }
+}
+.content {
+  margin: 0 auto;
+  padding: 2rem 0;
+  width: 80%;
+  border-bottom: 2px solid $snow;
+  h2 {
+    color: $snow;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+}

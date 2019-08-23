@@ -323,4 +323,52 @@ textarea::-moz-placeholder {
 textarea:-ms-input-placeholder {
   color: red; }
 
+body {
+  background-color: #32324F; }
+
+.header {
+  background: #fafafa;
+  width: 100%;
+  padding: 1rem;
+  position: fixed;
+  margin: 0;
+  top: 0; }
+  .header h1 {
+    color: #fafafa;
+    line-height: 1;
+    margin: 0; }
+
+.container {
+  max-width: 80%;
+  margin: .5rem auto; }
+  .container:after {
+    content: "";
+    clear: both;
+    display: block; }
+
+.logo {
+  float: left; }
+
+nav[role="navigation"] {
+  float: right; }
+  nav[role="navigation"] ul {
+    list-style: none inside; }
+  nav[role="navigation"] li {
+    display: inline-block;
+    text-align: center;
+    padding: .5rem 1rem; }
+  nav[role="navigation"] a {
+    color: #fafafa;
+    text-decoration: none; }
+
+.content {
+  margin: 0 auto;
+  padding: 2rem 0;
+  width: 80%;
+  border-bottom: 2px solid #fafafa; }
+  .content h2 {
+    color: #fafafa; }
+  .content p {
+    margin-bottom: 1rem; }
+
 /*# sourceMappingURL=style.css.map */
